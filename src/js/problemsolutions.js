@@ -2,7 +2,7 @@
 
 /*
     function to calculate the time taken to execute a function,
-    created as a wrapper for function calls
+    created as a wrapper for function calls to measure performance
  */
     function profiler(func) {
         return function() {
@@ -14,7 +14,7 @@
                 duration = Number(end - start).toFixed(4),
                 funcName = func.name;
 
-            console.log(`== Time take for ${funcName} was ${duration} ms`);
+            console.log(`       == Time take for ${funcName} was ${duration} ms`);
             return returnVal;
         };
     }
@@ -44,12 +44,17 @@
         return sum;
     }
 
+    console.log("#### Problem1 (https://projecteuler.net/problem=1) ####");
     var profile = profiler(linearWay);
-    console.log("Problem1(https://projecteuler.net/problem=1): linear result for 1000", profile.call(null, 1000));
-    console.log("Problem1(https://projecteuler.net/problem=1): linear result for 10000", profile.call(null, 10000));
-    console.log("Problem1(https://projecteuler.net/problem=1): linear result for 1000000", profile.call(null, 1000000));
+    console.log("       linear result for 1000", profile.call(null, 1000));
+    console.log("       linear result for 10000", profile.call(null, 10000));
+    console.log("       linear result for 1000000", profile.call(null, 1000000));
+    console.log("");
 
     /*
+     * this I learned later by looking on how to optimize it with the help of their suggestion, implemented
+     * it just for learning it, got to learn gauss formula :)
+     *
      * linearWay can have issues if n is very large, we can also solve it by making use of Gauss formula
      * i.e calculate sum individually for 3, 5, 15 using gauss formula, this way we can get rid of
      * looping through input
@@ -60,7 +65,7 @@
      *
      * O(1)
      */
-    function sumDivisibleBy (num, n) {
+    function sumDivisibleBy(num, n) {
         if (Number.isInteger(num) && Number.isInteger(n)) {
             let p = parseInt(num/n);
             return parseInt(n * (p * (p + 1)) / 2);
@@ -73,9 +78,9 @@
     }
 
     profile = profiler(calculateSumGaussWay);
-    console.log("Problem1(https://projecteuler.net/problem=1): gauss way result for 1000", profile.call(null, 999));
-    console.log("Problem1(https://projecteuler.net/problem=1): gauss way result for 10000", profile.call(null, 9999));
-    console.log("Problem1(https://projecteuler.net/problem=1): gauss way result for 1000000", profile.call(null, 999999));
+    console.log("       gauss way result for 1000", profile.call(null, 999));
+    console.log("       gauss way result for 10000", profile.call(null, 9999));
+    console.log("       gauss way result for 1000000", profile.call(null, 999999));
+
+    console.log(">>>>>>> ------------------------------------------------------------------------------ <<<<<<<");
 })();
-
-
