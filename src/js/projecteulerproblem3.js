@@ -41,5 +41,5 @@ function largestPrimeFactors(n) {
     return largest;
 }
 
-profile = profiler(largestPrimeFactors);
+var profile = profiler(largestPrimeFactors);
 profile.call(null, 600851475143);

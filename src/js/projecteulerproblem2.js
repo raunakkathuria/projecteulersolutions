@@ -34,7 +34,7 @@ function fibonacciLinear(limit) {
     return sum;
 }
 
-profile = profiler(fibonacciLinear);
+var profile = profiler(fibonacciLinear);
 profile.call(null, 4000000);
 
 /*
