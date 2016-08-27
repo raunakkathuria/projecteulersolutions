@@ -130,7 +130,7 @@ let inputArr = [
  * This is similar to problem solved in src/js/projecteulerproblem18.js
  * as we solved it through proper function i.e using previous state (dynamic programming)
  * rather than brute force so this huge input will be processed in milliseconds, for more explanation
- * refere problem18 file
+ * refer problem18 file
  */
 function maximumPathSumBig(inputArr) {
     // start top bottom
@@ -138,7 +138,7 @@ function maximumPathSumBig(inputArr) {
 
     for (let i = len - 2; i >= 0; i--) {
         for (let j = 0; j <= i; j++) {
-            inputArr[i][j] += Math.max(parseInt(inputArr[i+1][j]), parseInt(inputArr[i+1][j+1]))
+            inputArr[i][j] += Math.max(inputArr[i+1][j], inputArr[i+1][j+1])
         }
     }
 
